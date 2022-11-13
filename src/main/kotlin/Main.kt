@@ -27,4 +27,28 @@ fun tick(board: Board): Board = Board(
 )
 
 fun main(args: Array<String>) {
+    val seed =
+        """...............
+           ...OOO...OOO...
+           ...............
+           .O....O.O....O.
+           .O....O.O....O.
+           .O....O.O....O.
+           ...OOO...OOO...
+           ...............
+           ...OOO...OOO...
+           .O....O.O....O.
+           .O....O.O....O.
+           .O....O.O....O.
+           ...............
+           ...OOO...OOO...
+           ...............""".trimIndent()
+
+    generateSequence(Board(seed, 15)) {
+        tick(it)
+    }.forEach {
+        println()
+        println(it)
+        Thread.sleep(250)
+    }
 }
